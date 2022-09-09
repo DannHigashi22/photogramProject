@@ -50,5 +50,9 @@ window.addEventListener("load",function(){
             })
         })
     }
-    dislike();   
+    dislike();  
+    
+    $('#buscar').submit(function(e){
+        $(this).attr('action',url+'users/'+$('#buscar #search').val());
+    });
 });

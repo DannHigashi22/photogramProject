@@ -23,6 +23,7 @@ Route::get('/config','UserController@config')->name('config');
 Route::post('/user/edit','UserController@update')->name('user-update');
 Route::get('/user/avatar/{filename}','UserController@getImage')->name('user-avatar');
 Route::get('/profile/{id}','UserController@profile')->name('user-profile');
+Route::get('/users/{search?}','UserController@index')->name('users-all');
 
 //Rutas de imagenes
 Route::get('/image/create','ImageController@create')->name('image-create');

@@ -1,6 +1,4 @@
-form .avatar{
-    width: 100px;
-}
+/*navbar*/
 .navbar-nav .container-avatar,
 .home .container-avatar{
     width: 35px;
@@ -10,6 +8,14 @@ form .avatar{
     margin-left: 20px;
     border: 1px solid black;
 }
+.navbar-nav .avatar{
+  width: 25px;
+  height: 25px;
+  border-radius: 900px;
+  border: 1px solid black;
+  object-fit: cover;
+}
+
 /*home card*/
 .home{
   margin-bottom: 10px;
@@ -72,4 +78,9 @@ form .avatar{
 	width: 140px !important;
 	height: 140px !important;
 	object-fit: cover;
+}
+
+/*config*/
+form .avatar{
+  width: 100px;
 }

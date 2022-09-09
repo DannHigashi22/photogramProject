@@ -58,23 +58,21 @@
                                 <a class="nav-link" href="{{Route('image-create')}}">Subir imagen</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{Route('user-likes')}}">Mis Likes</a>
-                            </li>
-                            <li>
-                                @include('includes.avatar')
+                                <a class="nav-link" href="{{Route('users-all')}}">Usuarios</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="{{url('/user/avatar',Auth::user()->image)}}" alt="avatar de usuario" class="avatar">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{route('user-profile',['id'=>\Auth::user()->id])}}">Mi perfil</a>
+                                    <a class="dropdown-item" href="{{Route('user-likes')}}">Mis Likes</a>
                                     <a class="dropdown-item" href="{{ route('config')}}">Configuracion</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar Sesion') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -83,10 +81,13 @@
                             </li>
                         @endguest
                     </ul>
+                    <form method="GET" action="{{route('users-all')}}" id="buscar" class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" id="search" placeholder="Ingresa Nick" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>
